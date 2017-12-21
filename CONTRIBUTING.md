@@ -6,10 +6,6 @@ The greengrass-on-vsphere project team welcomes contributions from the community
 signed our contributor license agreement (CLA), our bot will update the issue when you open a Pull Request. For any
 questions about the CLA process, please refer to our [FAQ](https://cla.vmware.com/faq).
 
-## Community
-
-## Getting Started
-
 ## Contribution Flow
 
 This is a rough outline of what a contributor's workflow looks like:
@@ -79,5 +75,3 @@ and commits.
 ## Reporting Bugs and Creating Issues
 
 When opening a new issue, try to roughly follow the commit message format conventions above.
-
-## Repository Structure

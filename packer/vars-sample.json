@@ -1,0 +1,6 @@
+{
+    "esxi_host": "esxi-host.example.com",
+    "esxi_datastore": "datastore1",
+    "esxi_username": "root",
+    "esxi_password": "password"
+}

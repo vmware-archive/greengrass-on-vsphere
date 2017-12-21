@@ -1,0 +1,80 @@
+{
+  "builders": [{
+    "name": "ggc",
+    "vm_name": "VMware-ubuntu-ggc",
+    "type": "vmware-iso",
+    "guest_os_type": "ubuntu-64",
+    "tools_upload_flavor": "linux",
+    "headless": false,
+    "disk_size": 8000,
+    "vnc_disable_password": true,
+    "http_directory": "preseed",
+    "format": "ova",
+    "disk_type_id": "thin",
+    "keep_registered": true,
+
+    "iso_url": "http://releases.ubuntu.com/xenial/ubuntu-16.04.3-server-amd64.iso",
+    "iso_checksum": "a06cd926f5855d4f21fb4bc9978a35312f815fbda0d0ef7fdc846861f4fc4600",
+    "iso_checksum_type": "sha256",
+
+    "ssh_username": "ggc",
+    "ssh_password": "ggc",
+    "ssh_timeout": "15m",
+
+
+    "boot_command": [
+      "<enter><wait>",
+      "<f6><esc>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs>",
+      "auto=true ",
+      "priority=critical ",
+      "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu.cfg ",
+      "hostname={{ .Name }} ",
+      "initrd=/install/initrd.gz ",
+      "grub-installer/bootdev=/dev/sda ",
+      "<enter>"
+    ],
+
+    "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'ggc'|sudo -S sh 'shutdown.sh'",
+
+    "remote_type": "esx5",
+    "remote_host": "{{user `esxi_host`}}",
+    "remote_datastore": "{{user `esxi_datastore`}}",
+    "remote_username": "{{user `esxi_username`}}",
+    "remote_password": "{{user `esxi_password`}}",
+
+    "vmx_data": {
+      "ethernet0.networkName": "VM Network"
+    }
+  }],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo 'ggc' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "script": "scripts/install.sh"
+    },
+    {
+      "type": "file",
+      "source": "greengrass-ubuntu-x86-64-1.3.0.tar.gz",
+      "destination": "/tmp/greengrass-ubuntu-x86-64-1.3.0.tar.gz"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'ggc' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "script": "scripts/install_greengrass.sh"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'ggc' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "script": "scripts/cleanup.sh"
+    }
+  ]
+}

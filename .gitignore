@@ -1,0 +1,6 @@
+packer/greengrass*
+packer/output-ggc/*
+packer/ova
+packer/packer_cache
+packer/packerlog.txt
+packer/vars.json

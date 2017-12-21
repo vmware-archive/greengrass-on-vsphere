@@ -3,24 +3,11 @@
 # greengrass-on-vsphere
 
 ## Overview
+This repository contains the scripts for building the AWS Greengrass on vSphere
+OVA image.
 
-## Try it out
-
-### Prerequisites
-
-* Prereq 1
-* Prereq 2
-* Prereq 3
-
-### Build & Run
-
-1. Step 1
-2. Step 2
-3. Step 3
-
-## Documentation
-
-## Releases & Major Branches
+## Getting started
+To build an OVA for use with vSphere read the instructions [here](packer/README.md).
 
 ## Contributing
 
@@ -30,3 +17,4 @@ questions about the CLA process, please refer to our [FAQ](https://cla.vmware.co
 refer to [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
+greengrass-on-vsphere is licensed under the BSD 2-Clause License.
