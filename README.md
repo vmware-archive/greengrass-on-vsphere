@@ -45,6 +45,8 @@ The documentation will explain two ways to start the Greengrass core.
 ### Using the gghelper utility
 
 #### Start Greengrass using the gghelper utility
+1. Ensure you have AWS development credentials setup on the Linux system being used.
+   Instructions can be found [here](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html).
 1. Download the gghelper utility [here](https://github.com/cloudtools/gghelper/releases). Make sure the downloaded file is made executable and, for the purposes of these instructions, rename to gghelper and put it in your binary path.
 1. Create a Greengrass group and generate the certificates.  
 ```gghelper creategroup -name test```  
