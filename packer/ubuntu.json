@@ -43,7 +43,7 @@
       "<enter>"
     ],
 
-    "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'ggc'|sudo -S sh 'shutdown.sh'",
+    "shutdown_command": "echo 'ggc' | sudo -S systemctl poweroff",
 
     "remote_type": "esx5",
     "remote_host": "{{user `esxi_host`}}",
@@ -70,6 +70,11 @@
       "type": "shell",
       "execute_command": "echo 'ggc' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
       "script": "scripts/install_greengrass.sh"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'ggc' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "script": "scripts/network.sh"
     },
     {
       "type": "shell",
