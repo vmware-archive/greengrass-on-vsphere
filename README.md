@@ -26,7 +26,8 @@ The documentation will explain two ways to start the Greengrass core.
 
 #### Start Greengrass using the AWS UI
 1. Login to AWS IoT web UI and create a Greengrass group and core, and
-   download the core's certificate, public and private keys, and config.json as a tar.gz.  
+   download the core's certificate, public and private keys, and config.json as a tar.gz.
+   Instructions for this step can be found [here](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html).
 1. Download the tar.gz to the VM appliance and unpack the contents to the
   /greengrass folder.
   ```sudo tar xf gg-setup.tar.gz -C /greengrass```
