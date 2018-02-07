@@ -25,7 +25,7 @@ The documentation will explain two ways to start the Greengrass core.
 ### Using the AWS UI
 
 #### Start Greengrass using the AWS UI
-1. Login to AWS IoT web UI and create a Greengrass group and core, and
+1. Login to AWS Greengrass web UI and create a Greengrass group and core, and
    download the core's certificate, public and private keys, and config.json as a tar.gz.
    Instructions for this step can be found [here](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html).
 1. Download the tar.gz to the VM appliance and unpack the contents to the
@@ -58,8 +58,10 @@ for the Greengrass Core. This should be transferred onto the GGC system and unpa
 ```(cd /greengrass/ggc/core; sudo ./greengrassd start)```
 
 #### Example using gghelper
+1. Clone the gghelper [repo](https://github.com/cloudtools/gghelper) to get access to the example code.
+1. ```cd gghelper/example```
 1. Add in a lambda function  
-```gghelper lambda -pinned -d dist -handler hello_vsphere.hello_vsphere_handler -name HellovSphere -role lambda-test-get -runtime python2.7```
+```gghelper lambda -pinned -d dist -handler hello_vsphere.hello_vsphere_handler -name HellovSphere -role DefaultLambdaRole -runtime python2.7```
 1. Create a subscription between the function and cloud  
 ```gghelper createsub -source HellovSphere -target cloud -subject "hello/vsphere"```
 1. Make a deployment to download config and code to the Greengrass core  
