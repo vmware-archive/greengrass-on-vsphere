@@ -1,6 +1,6 @@
 #!/bin/sh
 
-GGFILE="/tmp/greengrass-ubuntu-x86-64-1.5.0.tar.gz"
+GGFILE="/tmp/greengrass-ubuntu-x86-64-1.6.0.tar.gz"
 
 tar xzf $GGFILE -C /
 rm -f $GGFILE
