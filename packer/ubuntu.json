@@ -63,8 +63,8 @@
     },
     {
       "type": "file",
-      "source": "greengrass-ubuntu-x86-64-1.6.0.tar.gz",
-      "destination": "/tmp/greengrass-ubuntu-x86-64-1.6.0.tar.gz"
+      "source": "greengrass-linux-x86-64-1.9.1.tar.gz",
+      "destination": "/tmp/greengrass-linux-x86-64-1.9.1.tar.gz"
     },
     {
       "type": "shell",
